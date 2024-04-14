@@ -1,0 +1,70 @@
+{
+  "build": {
+    "beforeDevCommand": "node node_modules/next/dist/bin/next dev -p 1420",
+    "beforeBuildCommand": "node node_modules/next/dist/bin/next build && node node_modules/next/dist/bin/next export -o next-dist",
+    "devPath": "http://localhost:1420",
+    "distDir": "../next-dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "Tauri on Bazel",
+    "version": "0.0.1"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "category": "DeveloperTool",
+      "copyright": "",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "com.taurionbazel.desktop",
+      "longDescription": "Tauri on Bazel with NextJS 14.",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [],
+      "shortDescription": "",
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "height": 600,
+        "resizable": true,
+        "title": "Tauri on Bazel",
+        "width": 800
+      }
+    ]
+  }
+}
