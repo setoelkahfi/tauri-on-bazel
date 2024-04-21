@@ -4,11 +4,11 @@ load("@npm//@tauri-apps/cli:index.bzl", "tauri")
 next(
     name = "next-build",
     data = glob([
-        "pages/**",
+        "app/**",
         "public/**",
-        "styles/**",
     ]) + [
         "tsconfig.json",
+        "tailwind.config.js",
     ],
     templated_args = ["build"],
 )
@@ -16,11 +16,11 @@ next(
 next(
     name = "next-dev",
     data = glob([
-        "pages/**",
+        "app/**",
         "public/**",
-        "styles/**",
     ]) + [
         "tsconfig.json",
+        "tailwind.config.js",
     ],
     templated_args = ["dev"],
 )

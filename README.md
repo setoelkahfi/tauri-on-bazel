@@ -1,6 +1,11 @@
 # tauri-on-bazel
 
-A small repository to demonstrate how to build a [Tauri](https://tauri.app/) v1.5 project that is using [NextJS](https://nextjs.org/) v14 + Typescript as a frontend framework with [Bazel](https://bazel.build/) v6.
+> {fast, correct} + {optimized, secure} = {tauri-on-bazel}
+
+A small repository to demonstrate how to build a [Tauri](https://tauri.app/) v1.5 project that is using [NextJS](https://nextjs.org/) v14 + Typescript + Tailwindcss as a frontend framework with [Bazel](https://bazel.build/) v6.
+
+![Screenshot 0 of Tauri on Bazel with NextJS, TypeScript, and Tailwindcss.](/screenshots/0.png?raw=true "Screenshot 0 of Tauri on Bazel with NextJS, TypeScript, and Tailwindcss.")
+![Screenshot 1 of Tauri on Bazel with NextJS, TypeScript, and Tailwindcss.](/screenshots/1.png?raw=true "Screenshot 1 of Tauri on Bazel with NextJS, TypeScript, and Tailwindcss.")
 
 ## Before running it
 
