@@ -1,3 +1,8 @@
+# BuildBuddy
+build --bes_results_url=https://app.buildbuddy.io/invocation/
+build --bes_backend=grpcs://remote.buildbuddy.io
+try-import ./auth.bazelrc
+
 ###############################
 # Filesystem interactions     #
 ###############################
