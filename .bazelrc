@@ -23,3 +23,18 @@ test  --incompatible_strict_action_env
 build --enable_runfiles
 run   --enable_runfiles
 test  --enable_runfiles
+
+###############################
+# Bzlmod                      #
+###############################
+
+common --enable_bzlmod
+
+# passes an argument `--skipLibCheck` to *every* spawn of tsc
+# Bazel 6.4 or greater: 'common' means 'any command that supports this flag'
+common --@aspect_rules_ts//ts:skipLibCheck=always
+
+# Between Bazel 6.0 and 6.3, you need all of this, to avoid discarding the analysis cache:
+build --@aspect_rules_ts//ts:skipLibCheck=always
+fetch --@aspect_rules_ts//ts:skipLibCheck=always
+query --@aspect_rules_ts//ts:skipLibCheck=always

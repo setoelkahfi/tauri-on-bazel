@@ -38,7 +38,6 @@ function Params() {
 
 export function AddressBar() {
   const pathname = usePathname();
-  console.log('pathname', pathname);
   return (
     <div className="flex items-center gap-x-2 p-3.5 lg:px-5 lg:py-3">
       <div className="text-gray-600">
@@ -62,8 +61,6 @@ export function AddressBar() {
                         {segment}
                       </span>
                     </span>
-
-                    <span className="text-gray-600">/</span>
                   </React.Fragment>
                 );
               })}

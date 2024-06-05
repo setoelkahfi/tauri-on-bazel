@@ -1,0 +1,32 @@
+load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
+
+ts_project(
+    name = "app",
+    allow_js = True,
+    incremental = True,
+    preserve_jsx = True,
+    resolve_json_module = True,
+    assets = ["globals.css"],
+    transpiler = "tsc",
+    tsconfig = "//:tsconfig",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/react-dom",
+        "//:node_modules/next",
+        "//:node_modules/typescript",
+        "//:node_modules/@radix-ui/react-tooltip",
+        "//:node_modules/@radix-ui/react-slot",
+        "//:node_modules/react-textarea-autosize",
+        "//:node_modules/class-variance-authority",
+        "//:node_modules/ai",
+        "//:node_modules/@tailwindcss",
+        "//:node_modules/tailwind-merge",
+        "//:node_modules/postcss",
+        "//:node_modules/autoprefixer",
+        "//:node_modules/nanoid",
+        "//:node_modules/clsx",
+        "//:node_modules/@heroicons/react",
+        "//:node_modules/react-hot-toast",
+    ],
+)

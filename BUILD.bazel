@@ -1,0 +1,41 @@
+"Root BUILD file for all frontend examples"
+
+load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
+load("@npm//:next/package_json.bzl", next_bin = "bin")
+load("defs.bzl", "next")
+
+# package(default_visibility = ["//:__subpackages__"])
+
+# Create the root of the "virtual store" of npm dependencies under bazel-out.
+# This must be done in the package where the pnpm workspace is rooted.
+npm_link_all_packages(name = "node_modules")
+
+next_bin.next_binary(
+    name = "next_js_binary",
+    visibility = ["//visibility:public"],
+)
+
+ts_config(
+    name = "tsconfig",
+    src = "tsconfig.json",
+    visibility = ["//visibility:public"],
+)
+
+next(
+    name = "next",
+    srcs = [
+        "//app",
+        "//public",
+    ],
+    data = [
+        "next.config.js",
+        "postcss.config.js",
+        "tailwind.config.ts",
+        "package.json",
+        "jsconfig.json",
+        ":node_modules",
+    ],
+    next_bin = "./node_modules/next/dist/bin/next",
+    next_js_binary = ":next_js_binary",
+)

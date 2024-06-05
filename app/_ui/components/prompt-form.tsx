@@ -11,6 +11,8 @@ import {
 import { IconArrowElbow, IconPlus } from './icons'
 import { useRouter } from 'next/navigation'
 import { Button, buttonVariants } from './button';
+import { useEnterSubmit } from '@/app/_lib/hooks/use-enter-submit';
+import { cn } from '@/app/_lib/utils';
 
 export interface PromptProps
   extends Pick<UseChatHelpers, 'input' | 'setInput'> {

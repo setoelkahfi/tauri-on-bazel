@@ -1,0 +1,11 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
+js_library(
+    name = "public",
+    srcs = [
+        "favicon.ico",
+        "grid.svg",
+        "logo192.png",
+    ],
+    visibility = ["//:__subpackages__"],
+)

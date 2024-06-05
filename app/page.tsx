@@ -1,4 +1,6 @@
-export default function Page() {
+import React from 'react';
+
+const Page: React.FC = () => {
   return (
     <div className="space-y-8">
       <h1 className="text-xl font-medium text-gray-300">Hello, Tauri on Bazel!</h1>
@@ -10,3 +12,5 @@ export default function Page() {
     </div>
   );
 }
+
+export default Page;
