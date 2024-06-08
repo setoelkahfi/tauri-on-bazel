@@ -3,6 +3,8 @@
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
 load("@npm//:next/package_json.bzl", next_bin = "bin")
+load("@npm//:@tauri-apps/cli/package_json.bzl", tauri_bin = "bin")
+load("@aspect_rules_js//js:defs.bzl", "js_run_devserver")
 load("defs.bzl", "next")
 
 # package(default_visibility = ["//:__subpackages__"])
@@ -38,4 +40,19 @@ next(
     ],
     next_bin = "./node_modules/next/dist/bin/next",
     next_js_binary = ":next_js_binary",
+)
+
+tauri_bin.tauri_binary(
+    name = "tauri_binary",
+    visibility = ["//visibility:public"],
+)
+
+js_run_devserver(
+    name = "tauri_dev",
+    data = glob(["src-tauri/*"]) + [
+        "//:node_modules",
+        "//:next",
+    ],
+    command = "./node_modules/@tauri-apps/cli/tauri.js",
+    args = ["dev"],
 )
