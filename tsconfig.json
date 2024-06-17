@@ -28,7 +28,8 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "noEmit": false
   },
   "include": [
     "**/*.ts",
