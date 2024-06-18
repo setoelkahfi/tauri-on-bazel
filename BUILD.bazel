@@ -49,10 +49,10 @@ tauri_bin.tauri_binary(
 
 js_run_devserver(
     name = "tauri_dev",
-    data = glob(["src-tauri/*"]) + [
+    data = [
         "//:node_modules",
         "//:next",
-    ],
-    command = "./node_modules/@tauri-apps/cli/tauri.js",
+    ] + glob(["src-tauri/*"]),
+    tool = ":tauri_binary",
     args = ["dev"],
 )
