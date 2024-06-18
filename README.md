@@ -46,3 +46,10 @@ You can retrieve the output app from `dist/bin/bundle.sh.runfiles/app/src-tauri/
 ## Credits
 
 Original [repo](https://github.com/marmos91/tauri-bazel-next-typescript).
+
+## Without Bazel
+
+Run from pnpm
+```
+pnpm tauri dev
+```
