@@ -39,6 +39,12 @@ bazel run :next-build
 
 This has been tested successfully on macOS M1.
 
+## Storybook
+
+```bash
+pnpm run storybook
+```
+
 ## Output
 
 You can retrieve the output app from `dist/bin/bundle.sh.runfiles/app/src-tauri/target/release/bundle`.
