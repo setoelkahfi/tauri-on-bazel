@@ -1,0 +1,12 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary")
+
+rust_binary(
+    name = "tauri",
+    srcs = glob(["*.rs"]),
+    data = ["tauri.conf.json"] + glob(["icons/**"]),
+    deps = [
+        "@crate_index//:tauri-build",
+        "@crate_index//:tauri",
+    ],
+
+)
