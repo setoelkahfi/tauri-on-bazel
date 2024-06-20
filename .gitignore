@@ -218,3 +218,5 @@ target/
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/bazel,node,nextjs,rust,visualstudiocode
+
+*storybook.log
