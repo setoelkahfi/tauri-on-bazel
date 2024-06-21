@@ -4,10 +4,7 @@ load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
 load("@npm//:next/package_json.bzl", next_bin = "bin")
 load("@npm//:@tauri-apps/cli/package_json.bzl", tauri_bin = "bin")
-load("@aspect_rules_js//js:defs.bzl", "js_run_devserver")
 load("defs.bzl", "next")
-
-# package(default_visibility = ["//:__subpackages__"])
 
 # Create the root of the "virtual store" of npm dependencies under bazel-out.
 # This must be done in the package where the pnpm workspace is rooted.
@@ -45,14 +42,9 @@ next(
 tauri_bin.tauri_binary(
     name = "tauri_binary",
     visibility = ["//visibility:public"],
-)
-
-js_run_devserver(
-    name = "tauri_dev",
+    args = ["dev"],
     data = [
         "//:node_modules",
         "//:next",
-    ] + glob(["src-tauri/*"]),
-    tool = ":tauri_binary",
-    args = ["dev"],
+    ] + glob(["src-tauri/**"]),
 )
