@@ -1,12 +1,33 @@
-load("@rules_rust//rust:defs.bzl", "rust_binary")
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_binary")
+load("@rules_rust//cargo:defs.bzl", "cargo_build_script")
+
+cargo_build_script(
+    name = "build-script",
+    srcs = [
+        "build.rs",
+    ],
+    data = [
+        "tauri.conf.json"
+    ],
+    deps = [
+        "@crate_index//:tauri-build",
+    ],
+)
 
 rust_binary(
     name = "tauri",
-    srcs = glob(["*.rs"]),
-    data = ["tauri.conf.json"] + glob(["icons/**"]),
+    visibility = ["//visibility:public"],
+    srcs = [
+        "src/main.rs",
+    ],
+    data = [
+        "distDir",
+        "tauri.conf.json",
+        "Cargo.toml",
+        ] +
+        glob(["icons/**"]),
     deps = [
-        "@crate_index//:tauri-build",
+        ":build-script",
         "@crate_index//:tauri",
     ],
-
 )

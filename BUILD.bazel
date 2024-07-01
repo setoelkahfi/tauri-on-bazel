@@ -43,8 +43,10 @@ tauri_bin.tauri_binary(
     name = "tauri",
     visibility = ["//visibility:public"],
     args = ["dev"],
+    chdir = package_name(),
     data = [
         "//:node_modules",
         "//:next",
-    ] + glob(["src-tauri/**"]),
+        "//src-tauri:tauri",
+    ],
 )
