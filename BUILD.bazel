@@ -40,7 +40,7 @@ next(
 )
 
 tauri_bin.tauri_binary(
-    name = "tauri_binary",
+    name = "tauri",
     visibility = ["//visibility:public"],
     args = ["dev"],
     data = [
