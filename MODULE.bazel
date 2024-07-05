@@ -37,3 +37,19 @@ rules_ts_ext = use_extension(
 )
 rules_ts_ext.deps()
 use_repo(rules_ts_ext, "npm_typescript")
+
+crate = use_extension(
+    "@rules_rust//crate_universe:extension.bzl",
+    "crate",
+)
+
+crate.spec(
+    package = "tauri-cli",
+    version = "1.5.14",
+)
+
+crate.annotation(crate = "tauri-cli", gen_binaries = ["cargo-tauri"])
+
+crate.from_specs()
+
+use_repo(crate, "crates")
