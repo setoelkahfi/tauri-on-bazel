@@ -21,20 +21,13 @@ git lfs pull
 To run Tauri in development mode, just run the following:
 
 ```bash
-bazel run :dev
+bazel run //frontend/desktop:dev
 ```
 
 To bundle your app, just run:
 
 ```bash
-bazel run :bundle
-```
-
-If you are interested in running or building the front end, only run the following:
-
-```bash
-bazel run :next-dev
-bazel run :next-build
+bazel run //frontend/desktop:bundle
 ```
 
 This has been tested successfully on macOS M1.
